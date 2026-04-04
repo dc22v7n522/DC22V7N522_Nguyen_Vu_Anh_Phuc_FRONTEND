@@ -5,6 +5,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <div>
     <div class="p-1">
@@ -23,9 +24,18 @@ export default {
       <strong>Điện thoại:</strong>
       {{ contact.phone }}
     </div>
-    <div class="p-1"></div>
+
+    <div class="p-1">
+      <strong>Sở thích:</strong>
+      <span v-if="contact.interests && contact.interests.length > 0">
+        {{ contact.interests.join(", ") }}
+      </span>
+      <span v-else>Chưa có thông tin</span>
+    </div>
+    <div class="p-1">
+      <strong>Liên hệ yêu thích:&nbsp;</strong>
+      <i v-if="contact.favorite" class="fas fa-check"></i>
+      <i v-else class="fas fa-times"></i>
+    </div>
   </div>
-  <strong>Liên hệ yêu thích:&nbsp;</strong>
-  <i v-if="contact.favorite" class="fas fa-check"></i>
-  <i v-else class="fas fa-times"></i>
 </template>
